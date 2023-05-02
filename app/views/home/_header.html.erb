@@ -37,7 +37,13 @@
                   </li>
                   <li>
                     <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data:{ turbo_method: :delete}, class:"dropdown-item" %>
-                  </li>        
+                  </li>
+                  <li>
+                    <%= link_to "Delete Account", edit_user_registration_path, class:"dropdown-item" %> <!-- to be relocated to user profile -->
+                  </li>
+                  <li>
+                    <%= link_to "add friend", new_friend_path, class:"dropdown-item" %> <!-- to be relocated to user profile -->
+                  </li>            
                 </ul>
               </div>            
           </div>
