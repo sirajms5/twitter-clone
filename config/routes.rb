@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :profiles
   devise_for :users
   
-  #get 'home/about'
-  root 'home#about'
+  get 'home/about'
+  root 'posts#index'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
