@@ -1,27 +1,49 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @profile %>
-<%= @profile.inspect %>
-<h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
-
+<% render @profile %>
+<div class="d-flex align-items-center">  
+  <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile" %></p>
+  <div class="d-flex flex-column ms-5">
+    <h5> <%= @profile.first_name + " " + @profile.last_name %> </h5>
+    <p> <%= @tweets.last.id %> Tweets </p>
+  </div>
+</div>
+<img class="img-fluid" src="https://sirajsaleem.com/images/friends-list-app.png" alt="cover photo" />
+<img class="img-fluid" id="profile_image" src="https://sirajsaleem.com/images/friends-list-app.png" alt="cover photo" />
+<div class="d-flex justify-content-between align-items-center mt-5 mb-4">
+  <h5> <%= @profile.first_name + " " + @profile.last_name %> </h5>
+  <div>
+    <%= link_to "Set up profile", edit_profile_path(@profile), class:"btn btn-light" %>
+  </div>
+</div>
 <% if @tweets.any? %>
-  <h2>tweets:</h2>
-  <ul>
     <% @tweets.each do |tweet| %>
-      <li><%= tweet.description %></li>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex">
+            <h6 class="card-title">
+              <%= @profile.first_name + " " + @profile.last_name %>
+            </h6>
+            <p class="ms-2">
+              <i class="h6">·</i> 
+              <%= time_ago_in_words(tweet.created_at) %> 
+            </p>
+          </div>
+          <p class="card-text">          
+            <%= tweet.description %>
+          </p>
+        </div>
+      </div>
     <% end %>
-  </ul>
 <% else %>
   <p>No tweets yet.</p>
 <% end %>
-
-<div>
-  <%= link_to "Create New Post", new_tweet_path(profile_id: current_user.profile.id), class: "btn btn-primary" %>
-</div>
-
+<!--
 <div>
   <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
   <%= link_to "Back to profiles", profiles_path %>
 
   <%= button_to "Destroy this profile", @profile, method: :delete %>
 </div>
+-->
+

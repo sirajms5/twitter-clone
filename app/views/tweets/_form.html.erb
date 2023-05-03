@@ -17,11 +17,11 @@
   </div>
 
   <div>
-    <%= form.number_field :profile_id, id: :profile_id, value: @profile_id%>
+    <%= form.number_field :profile_id, id: :profile_id, value: @profile_id, type: "hidden" %>
   </div>
 
   <div>
-    <%= form.number_field :user_id, id: :profile_user_id, value: current_user.id %>
+    <%= form.number_field :user_id, id: :profile_user_id, value: current_user.id, type: "hidden" %>
   </div>
 
   <div>

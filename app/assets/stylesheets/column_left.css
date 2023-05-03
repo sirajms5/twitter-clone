@@ -13,5 +13,11 @@
 
 #column_image {
     border-radius: 50%;
-    width: 20%;
+    width: 100px;
+    height: 100px;
+}
+
+#column-left {
+    position: fixed;
+    height: 90vh;
 }
