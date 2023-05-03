@@ -1,0 +1,12 @@
+#icon {
+    color: #1DA1F2;
+    font-size: 1.5rem;
+}
+
+.anchor {
+    text-decoration: none;
+}
+
+.anchor:hover {
+    text-decoration: underline;
+}

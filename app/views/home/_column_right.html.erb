@@ -1,0 +1,24 @@
+<div class="col-3">
+    <div class="card mt-3 me-5">
+        <div class="card-body">
+            <h5 class="card-title"> New to Twitter? </h5>
+            <p> Sign up now to get your own personalized timeline! </p>
+            <%= link_to "Creat account", new_user_registration_path, class: "btn btn-outline-dark" %>
+            <p class="mt-3"> By signing up, you agree to the 
+                <%= link_to "Terms of Services", home_terms_of_services_path, class: "anchor" %> 
+                and 
+                <%= link_to "Privacy Policy", home_privacy_policy_path, class: "anchor" %>
+                , including Cookie Use.
+            </p>
+        </div>
+    </div>
+    <p class="mt-3">
+        <%= link_to "Terms of Services", home_terms_of_services_path, class: "anchor" %>
+        <%= link_to "Privacy Policy", home_privacy_policy_path, class: "anchor" %>
+        Cookie Policy
+        Accessibility
+        Ads info
+        More
+        © 2023 X Corp.
+    </p>
+</div>
