@@ -3,7 +3,7 @@
         <div class="mt-3 ms-5 h5" id="icon">
             <i class="fab fa-twitter"></i>
         </div>
-        <% if !current_user.profile.nil? %>
+        <% if current_user.profile.present? %>
             <div class="mt-3 ms-5 h5">
                 <%= link_to " Home", tweets_path, class: "fas fa-home anchor" %>
             </div>
@@ -18,7 +18,7 @@
                 </div>
         <% end %>     
     </div>
-    <% if !current_user.profile.nil? %>
+    <% if current_user.profile.present? %>
         <div class="btn-group dropup">
             <button type="button" class="btn btn-outline-dark dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="img-fluid" id="column_image" src="https://sirajsaleem.com/images/friends-list-app.png" alt="no image" />

@@ -5,8 +5,10 @@
   <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile" %></p>
   <div class="d-flex flex-column ms-5">
     <h5> <%= @profile.first_name + " " + @profile.last_name %> </h5>
-    <% if !@tweets_number.nil? %>
+    <% if @tweets_number.present? && @tweets_number.any? %>
       <p> <%= @tweets_number.last.id %> Tweets </p>
+    <% else %>
+      <p> 0 Tweets </p>
     <% end %>
   </div>
 </div>
