@@ -4,6 +4,7 @@
 
 .anchor:hover {
     text-decoration: underline;
+    color: blue;
 }
 
 #column-right {

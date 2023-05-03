@@ -1,0 +1,9 @@
+.anchor-settings {
+    text-decoration: none;
+    color: black;
+}
+
+.anchor-settings:hover {
+    text-decoration: underline;
+    color: blue;
+}

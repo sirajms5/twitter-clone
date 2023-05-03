@@ -12,45 +12,38 @@
   <% end %>
 
   <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class: "form-control mt-3", placeholder: "First Name", required: true %>
   </div>
 
   <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class: "form-control mt-3", placeholder: "Last Name", required: true %>
   </div>
 
   <div>
-    <%= form.label :country, style: "display: block" %>
-    <%= form.text_field :country %>
+    <%= form.text_field :country, class: "form-control mt-3", placeholder: "Country" %>
   </div>
 
   <div>
-    <%= form.label :province, style: "display: block" %>
-    <%= form.text_field :province %>
+    <%= form.text_field :province, class: "form-control mt-3", placeholder: "Province/state" %>
   </div>
 
   <div>
-    <%= form.label :city, style: "display: block" %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, class: "form-control mt-3", placeholder: "City" %>
   </div>
 
   <div>
-    <%= form.label :university_college, style: "display: block" %>
-    <%= form.text_field :university_college %>
+    <%= form.text_field :university_college, class: "form-control mt-3", placeholder: "University/College" %>
   </div>
 
   <div>
-    <%= form.label :image_url, style: "display: block" %>
-    <%= form.text_area :image_url %>
+    <%= form.text_area :image_url, class: "form-control mt-3", placeholder: "Insert image url ending with .png", rows: 1 %>
   </div>
 
   <div>
     <%= form.number_field :user_id, id: :prfile_user_id, value: current_user.id, type: :hidden %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-3">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,10 +1,14 @@
-<h1>Editing profile</h1>
+<div class="d-flex align-items-center">
+  <%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile" %>
+  <h3 class="ms-4">Edit profile</h3>
+</div>
 
 <%= render "form", profile: @profile %>
 
 <br>
-
+<!--
 <div>
   <%= link_to "Show this profile", @profile %> |
   <%= link_to "Back to profiles", profiles_path %>
 </div>
+-->

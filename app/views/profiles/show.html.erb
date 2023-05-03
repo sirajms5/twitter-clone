@@ -5,7 +5,9 @@
   <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile" %></p>
   <div class="d-flex flex-column ms-5">
     <h5> <%= @profile.first_name + " " + @profile.last_name %> </h5>
-    <p> <%= @tweets.last.id %> Tweets </p>
+    <% if !@tweets_number.nil? %>
+      <p> <%= @tweets_number.last.id %> Tweets </p>
+    <% end %>
   </div>
 </div>
 <img class="img-fluid" src="https://sirajsaleem.com/images/friends-list-app.png" alt="cover photo" />
@@ -18,25 +20,28 @@
 </div>
 <% if @tweets.any? %>
     <% @tweets.each do |tweet| %>
-      <div class="card mb-3">
-        <div class="card-body">
-          <div class="d-flex">
-            <h6 class="card-title">
-              <%= @profile.first_name + " " + @profile.last_name %>
-            </h6>
-            <p class="ms-2">
-              <i class="h6">·</i> 
-              <%= time_ago_in_words(tweet.created_at) %> 
+      <%= link_to tweet, class:"anchor-profile" do %>
+        <div class="card mb-3 profile-tweet-card">
+          <div class="card-body">
+            <div class="d-flex">
+              <h6 class="card-title">
+                <%= @profile.first_name + " " + @profile.last_name %>
+              </h6>
+              <p class="ms-2">
+                <i class="h6">·</i> 
+                <%= time_ago_in_words(tweet.created_at) %> 
+              </p>
+            </div>
+            <p class="card-text">          
+              <%= tweet.description %>
             </p>
           </div>
-          <p class="card-text">          
-            <%= tweet.description %>
-          </p>
         </div>
-      </div>
+      <% end %>
     <% end %>
 <% else %>
   <p>No tweets yet.</p>
+  <%= link_to "Tweet your first tweet", new_tweet_path(profile_id: current_user.profile.id), class: "btn btn-primary" %>
 <% end %>
 <!--
 <div>

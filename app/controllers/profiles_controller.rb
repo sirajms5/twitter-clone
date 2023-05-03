@@ -9,7 +9,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1 or /profiles/1.json
   def show
     @profile = Profile.find(params[:id])
-    @tweets = @profile.tweet
+    @tweets = @profile.tweet.order(created_at: :desc)
+    @tweets_number = @profile.tweet
   end
 
   # GET /profiles/new
