@@ -10,3 +10,8 @@
 .anchor:hover {
     text-decoration: underline;
 }
+
+#column_image {
+    border-radius: 50%;
+    width: 20%;
+}

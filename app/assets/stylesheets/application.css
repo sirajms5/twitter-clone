@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.test {
-    background-color: rgb(255, 0, 191);
-}
+
+ body {
+    overflow-x: hidden;
+ }
