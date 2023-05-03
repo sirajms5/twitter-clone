@@ -4,19 +4,19 @@
 <%= @profile.inspect %>
 <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
 
-<% if @posts.any? %>
-  <h2>Posts:</h2>
+<% if @tweets.any? %>
+  <h2>tweets:</h2>
   <ul>
-    <% @posts.each do |post| %>
-      <li><%= post.description %></li>
+    <% @tweets.each do |tweet| %>
+      <li><%= tweet.description %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>No posts yet.</p>
+  <p>No tweets yet.</p>
 <% end %>
 
 <div>
-  <%= link_to "Create New Post", new_post_path(profile_id: current_user.profile.id), class: "btn btn-primary" %>
+  <%= link_to "Create New Post", new_tweet_path(profile_id: current_user.profile.id), class: "btn btn-primary" %>
 </div>
 
 <div>
