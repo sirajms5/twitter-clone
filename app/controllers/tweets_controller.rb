@@ -9,6 +9,8 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1 or /tweets/1.json
   def show
+    @tweet = Tweet.find(params[:id])
+    @replies = @tweet.replies.order(created_at: :asc)
   end
 
   # GET /tweets/new

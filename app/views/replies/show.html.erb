@@ -1,0 +1,35 @@
+<% render @reply %>
+
+<div class="d-flex justify-content-between">
+  <div class="d-flex">
+    <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile mt-2" %></p>
+    <h4 class="ms-4"> Reply </h4>
+  </div>
+  <% if current_user.profile.id == @reply.tweet.profile.id %>
+    <div>
+      <%= link_to "Edit Reply", edit_reply_path(@reply), class:"btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="d-flex align-items-center mt-2"> 
+  <img id="tweet-image" src="<%= @reply.tweet.profile.image_url %>" alt="profile-image" />
+  <h5 class="ms-4"> <%= link_to @reply.tweet.profile.first_name + " " + @reply.tweet.profile.last_name, profile_path(@reply.tweet.profile.id), class:"anchor-tweet", id:"tweet-profile-name" %> </h5>
+</div>
+
+<div class="mt-4">
+  <%= @reply.description %>
+</div>
+
+<div class="mt-2">
+  <%= @reply.created_at.strftime("%I:%M %p") %> <i class="h6">·</i> <%= @reply.created_at.strftime("%B %d, %Y") %>
+</div>
+
+<!--
+<div>
+  <%= link_to "Edit this reply", edit_reply_path(@reply) %> |
+  <%= link_to "Back to replies", replies_path %>
+
+  <%= button_to "Destroy this reply", @reply, method: :delete %>
+</div>
+-->

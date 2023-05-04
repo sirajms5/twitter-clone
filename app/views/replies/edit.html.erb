@@ -1,0 +1,14 @@
+<div class="d-flex align-items-center">  
+  <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-tweet mt-3" %></p>
+  <h4 class="ms-4">Editting Reply</h4>
+</div>
+
+<%= render "form", reply: @reply %>
+
+<!--
+<div>
+  <%= link_to "Show this reply", @reply %> |
+  <%= link_to "Back to replies", replies_path %>
+  <%= button_to "Destroy this reply", @reply, method: :delete %>
+</div>
+-->

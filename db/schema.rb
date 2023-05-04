@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_03_132831) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_04_195850) do
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_132831) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tweet_id", null: false
+    t.integer "user_id", null: false
+    t.index ["tweet_id"], name: "index_replies_on_tweet_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -48,6 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_132831) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "replies", "tweets"
+  add_foreign_key "replies", "users"
   add_foreign_key "tweets", "profiles"
   add_foreign_key "tweets", "users"
 end

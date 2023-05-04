@@ -1,0 +1,35 @@
+<%= form_with(model: reply) do |form| %>
+  <% if reply.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reply.errors.count, "error") %> prohibited this reply from being saved:</h2>
+
+      <ul>
+        <% reply.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_area :description, class:"form-control mt-3", placeholder: "Reply", required: true %>
+  </div>
+
+  <% if @tweet.nil? %>
+    <div>
+      <%= form.number_field :tweet_id, id: :tweet_id, value: reply.tweet.id, type: "hidden" %>
+    </div>
+  <% else %>
+    <div>
+      <%= form.number_field :tweet_id, id: :tweet_id, value: @tweet.id, type: "hidden" %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.number_field :user_id, id: :tweet_user_id, value: current_user.id, type: "hidden" %>
+  </div>
+
+  <div class="mt-3">
+    <%= form.submit class:"btn btn-info" %>
+  </div>
+<% end %>
