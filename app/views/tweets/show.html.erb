@@ -15,7 +15,7 @@
 
 <div class="d-flex align-items-center mt-2"> 
   <img id="tweet-image" src="<%= @tweet.profile.image_url %>" alt="profile-image" />
-  <h5 class="ms-4"> <%= @tweet.profile.first_name + " " + @tweet.profile.last_name %> </h5>
+  <h5 class="ms-4"> <%= link_to @tweet.profile.first_name + " " + @tweet.profile.last_name, profile_path(@tweet.profile.id), class:"anchor-tweet", id:"tweet-profile-name" %> </h5>
 </div>
 
 <div class="mt-4">

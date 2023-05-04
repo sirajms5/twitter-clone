@@ -1,3 +1,3 @@
 class Profile < ApplicationRecord
-    has_many :tweet, dependent: :destroy
+    has_many :tweets, dependent: :destroy
 end
