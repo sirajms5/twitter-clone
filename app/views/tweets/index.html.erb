@@ -8,16 +8,17 @@
     <%= link_to tweet, class:"anchor-tweet" do %>
       <div class="card mb-3 tweet-card">
         <div class="card-body">
-          <div class="d-flex">
-            <h6 class="card-title">
+          <div class="card-title d-flex align-items-center">
+            <img id="tweet-image-index" src="<%= tweet.profile.image_url %>" alt="profile-image" />
+            <h6 class="ms-2">
               <%= tweet.profile.first_name + " " + tweet.profile.last_name %>
-            </h6>
-            <p class="ms-2">
-              <i class="h6">·</i> 
-              <%= time_ago_in_words(tweet.created_at) %> 
+            </h6>            
+            <p class="ms-2 mt-2">
+            <i class="h6">·</i> 
+            <%= time_ago_in_words(tweet.created_at) %> 
             </p>
           </div>
-          <p class="card-text">          
+          <p class="card-text mt-3">          
             <%= tweet.description %>
           </p>
         </div>

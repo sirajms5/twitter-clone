@@ -1,10 +1,15 @@
-<h1>Editing tweet</h1>
+<div class="d-flex align-items-center">  
+  <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-tweet mt-3" %></p>
+  <h4 class="ms-4">Editting Tweet</h4>
+</div>
 
 <%= render "form", tweet: @tweet %>
 
 <br>
 
+<!-->
 <div>
   <%= link_to "Show this tweet", @tweet %> |
   <%= link_to "Back to tweets", tweets_path %>
 </div>
+-->
