@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @tweets = @profile.tweets.order(created_at: :desc)
     @tweets_number = @profile.tweets
+    @rel = @profile.followers.find_by(follower: current_user.profile.id)
   end
 
   # GET /profiles/new

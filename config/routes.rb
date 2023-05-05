@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :replies
   resources :tweets
-  resources :profiles
+  resources :profiles do 
+    resource :relationships, only: [:create]
+  end  
+  resource :relationships, only: [:destroy]
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
