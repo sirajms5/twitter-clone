@@ -1,22 +1,24 @@
+<%= javascript_include_tag "left_column" %>
+
 <div class="col-2 d-flex flex-column justify-content-between ms-5" id="column-left">
     <div>
         <div class="mt-3 ms-5 h5" id="icon">
             <i class="fab fa-twitter"></i>
         </div>
         <% if current_user.profile.present? %>
-            <div class="mt-3 ms-5 h5">
-                <%= link_to " Home", tweets_path, class: "fas fa-home anchor" %>
+            <div class="mt-3 ms-5">
+                <%= link_to content_tag(:i, "", class: "fas fa-home") + " Home", tweets_path, class: "anchor", id:"home", onclick:"solidify('home')" %>
             </div> <!-- will become followers path -->
-            <div class="mt-3 ms-5 h5">
-                <%= link_to " Explore", tweets_path, class: "fas fa-hashtag anchor" %>
+            <div class="mt-3 ms-5">
+                <%= link_to content_tag(:i, "", class: "fas fa-hashtag") + " Explore", tweets_path, class: "anchor" %>
             </div>
-            <div class="mt-3 ms-5 h5">
-                <%= link_to " Profile", current_user.profile, class: "fas fa-user anchor" %>
+            <div class="mt-3 ms-5">
+                <%= link_to content_tag(:i, "", class: "fas fa-user") + " Profile", current_user.profile, class: "anchor" %>
             </div>
-            <div class="mt-3 ms-5 h5">
-                <%= link_to " Settings",  home_settings_path, class: "fas fa-cog anchor" %>
+            <div class="mt-3 ms-5">
+                <%= link_to content_tag(:i, "", class: "fas fa-cog") + " Settings",  home_settings_path, class: "anchor" %>
             </div>        
-                <div class="mt-4 ms-5 h5">
+                <div class="mt-4 ms-5">
                     <%= link_to "Tweet", new_tweet_path(profile_id: current_user.profile.id), class: "btn btn-primary col-12" %>
                 </div>
         <% end %>     
