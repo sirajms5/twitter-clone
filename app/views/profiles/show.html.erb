@@ -1,6 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
 <% render @profile %>
+
 <div class="d-flex align-items-center">  
   <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile" %></p>
   <div class="d-flex flex-column ms-5">
@@ -12,11 +11,13 @@
     <% end %>
   </div>
 </div>
-<img class="img-fluid" src="https://sirajsaleem.com/images/friends-list-app.png" alt="cover photo" />
-<img class="img-fluid" id="profile_image" src="<%= @profile.image_url %>" alt="cover photo" />
+<img class="img-fluid" id="cover-image" src="<%= @profile.cover_image.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.cover_image : 'https://sirajsaleem.com/images/default-cover-image.webp' %>" alt="cover photo" />
+<img class="img-fluid" id="profile-image" src="<%= @profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile photo"/>
 <div class="d-flex justify-content-between align-items-center mt-5">
-  <h5> <%= @profile.first_name + " " + @profile.last_name %> </h5>
-  <div>
+  <div>    
+    <h5> <%= @profile.first_name + " " + @profile.last_name %> </h5>    
+  </div>
+  <div>  
     <% if current_user.profile.id != @profile.id %>
       <%= button_to "Follow", profile_relationships_path(@profile.id), method: :post, class:"btn btn-secondary" unless @rel.present? %>
       <%= button_to "Unfollow", relationships_path(@rel.id), method: :delete, class: "btn btn-secondary", params: { id: @rel.id } if @rel.present?  %>
@@ -25,9 +26,17 @@
     <% end %>
   </div>
 </div>
+<p class="mt-1 profile-info">
+  <i class="fas fa-map-pin me-1"></i>
+  <%= (@profile.country.capitalize unless @profile.country.nil?) + ", " + (@profile.province.upcase unless @profile.province.nil?) + ". " + (@profile.city.capitalize unless @profile.city.nil?) %>
+  <i class="far fa-calendar-alt ms-3"></i> joined
+  <%= @profile.created_at.strftime("%B %Y") %>
+</p>
 <div class="d-flex mb-4">
-  <p>Followers: <%= @profile.followers.count %> </p>
-  <p class="ms-3">Following: <%= @profile.following.count %> </p>
+  <p class="me-1 profile-info"> Followers: </p>
+  <strong> <%= @profile.followers.count %> </strong>
+  <p class="ms-3 me-1 profile-info"> Following: </p>
+  <strong> <%= @profile.following.count %> </strong>
 </div>
 <% if @tweets.any? %>
     <% @tweets.each do |tweet| %>
@@ -36,6 +45,7 @@
           <div class="card-body">
             <div class="d-flex">
               <h6 class="card-title">
+                <img class="me-2" id="profile-tweet-image" src="<%= @profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile-image" />
                 <%= @profile.first_name + " " + @profile.last_name %>
               </h6>
               <p class="ms-2">

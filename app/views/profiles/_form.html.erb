@@ -40,6 +40,10 @@
   </div>
 
   <div>
+    <%= form.text_area :cover_image, class: "form-control mt-3", placeholder: "Insert cover image url ending with .png", rows: 1 %>
+  </div>
+
+  <div>
     <%= form.number_field :user_id, id: :prfile_user_id, value: current_user.id, type: :hidden %>
   </div>
 

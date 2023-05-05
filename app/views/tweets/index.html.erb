@@ -9,7 +9,7 @@
       <div class="card mb-3 tweet-card">
         <div class="card-body">
           <div class="card-title d-flex align-items-center">
-            <img id="tweet-image-index" src="<%= tweet.profile.image_url %>" alt="profile-image" />
+            <img id="tweet-image-index" src="<%= tweet.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? tweet.profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %> %>" alt="profile-image" />
             <h6 class="ms-2">
               <%= tweet.profile.first_name + " " + tweet.profile.last_name %>
             </h6>            

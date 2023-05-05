@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_05_142641) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_193356) do
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_142641) do
     t.integer "user_id"
     t.integer "follower_id"
     t.integer "followed_id"
+    t.text "cover_image"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

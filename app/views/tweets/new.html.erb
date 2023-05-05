@@ -3,7 +3,8 @@
   <h4 class="ms-4">New Tweet</h4>
 </div>
 
-<img class="img-fluid mt-2 ms-4" id="tweet-image" src="<%= current_user.profile.image_url %>" alt="no image" />
+<img class="img-fluid mt-2 ms-4" id="tweet-image" src="<%= current_user.profile.cover_image.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? current_user.profile.cover_image : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="no image" />
+
 <%= render "form", tweet: @tweet %>
 
 <!--
