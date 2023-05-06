@@ -1,8 +1,9 @@
+<!-- currently not accessable maybe used in future updates -->
 <% render @reply %>
 
 <div class="d-flex justify-content-between">
   <div class="d-flex">
-    <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile mt-2" %></p>
+    <p><%= link_to "", :back, class:"fas fa-arrow-left anchor-profile mt-2" %></p>
     <h4 class="ms-4"> Reply </h4>
   </div>
   <% if current_user.profile.id == @reply.tweet.profile.id %>
@@ -24,12 +25,3 @@
 <div class="mt-2">
   <%= @reply.created_at.strftime("%I:%M %p") %> <i class="h6">·</i> <%= @reply.created_at.strftime("%B %d, %Y") %>
 </div>
-
-<!--
-<div>
-  <%= link_to "Edit this reply", edit_reply_path(@reply) %> |
-  <%= link_to "Back to replies", replies_path %>
-
-  <%= button_to "Destroy this reply", @reply, method: :delete %>
-</div>
--->

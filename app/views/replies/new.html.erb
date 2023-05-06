@@ -1,14 +1,8 @@
-<div class="d-flex align-items-center">  
-  <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-tweet mt-3" %></p>
+<div class="d-flex align-items-center mt-1">  
+  <p><%= link_to "", :back, class:"fas fa-arrow-left anchor-tweet mt-3" %></p>
   <h4 class="ms-4">New Reply</h4>
 </div>
 
 <img class="img-fluid mt-2 ms-4" id="tweet-image" src="<%= current_user.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? current_user.profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="no image" />
 
 <%= render "form", reply: @reply %>
-
-<!--
-<div>
-  <%= link_to "Back to replies", replies_path %>
-</div>
--->

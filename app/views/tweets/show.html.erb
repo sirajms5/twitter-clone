@@ -1,7 +1,7 @@
 <% render @tweet %>
 
-  <div class="d-flex">
-    <p><%= link_to "", tweets_path, class:"fas fa-arrow-left anchor-profile mt-2" %></p>
+  <div class="d-flex mt-3">
+    <p><%= link_to "", :back, class:"fas fa-arrow-left anchor-profile mt-2" %></p>
     <h4 class="ms-4"> Tweet </h4>
   </div>  
 
@@ -61,12 +61,3 @@
 <% else %>
   <p class="mt-3">There are no replies to this tweet yet.</p>  
 <% end %>
-
-<!--
-<div><i class="fas fa-pen"></i>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
-
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-</div>
--->
