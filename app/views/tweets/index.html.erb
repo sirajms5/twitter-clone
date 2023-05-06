@@ -2,13 +2,16 @@
   <h4 class="mt-3" id="title">
     <%= @title = "Explore" %>
   </h4>  
-  <script>
-    var pageTitle = '<%= @title %>'; // used in left_column.js
-  </script>
 <% else %>
-  <h4 class="mt-3" id="title">
-    <%= @title %>
-  </h4>
+  <% if @title.nil? %>
+    <h4 class="mt-3" id="title">
+      <%= @title = "Explore" %>
+    </h4>
+  <% else %>
+    <h4 class="mt-3" id="title">
+      <%= @title %>
+    </h4>
+  <% end %>
   <script>
     var pageTitle = '<%= @title %>'; // used in left_column.js
   </script>
