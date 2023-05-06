@@ -2,13 +2,13 @@ document.addEventListener("turbo:load", function() {
     var h4Element = document.querySelector("h4");
     var elementId = null;
     
-    if (h4Element && h4Element.textContent === "Home") {
+    if (pageTitle === "Home") { // pageTitle is writtien in views/tweets/index.html.erb
       elementId = document.getElementById("home");
-    } else if (h4Element && h4Element.textContent === "Explore") {
+    } else if (pageTitle === "Explore") {
       elementId = document.getElementById("explore");
-    } else if (h4Element && h4Element.textContent === "Settings") {
+    } else if (pageTitle === "Settings") {
       elementId = document.getElementById("settings");
-    } else if(localStorage.getItem("savedData") == "profile"){
+    } else if(pageTitle === "profile"){
       elementId = document.getElementById("profile");
       localStorage.removeItem("savedData");
     }
@@ -17,7 +17,4 @@ document.addEventListener("turbo:load", function() {
       elementId.classList.add("solidifier");
     }
   });
-
-  function profileClicked(){
-    localStorage.setItem("savedData", "profile");
-  }
+  

@@ -5,13 +5,13 @@
         </div>
         <% if current_user.profile.present? %>
             <div class="mt-3 ms-5">
-                <%= link_to content_tag(:i, "", class: "fas fa-home") + " Home", tweets_path, class: "anchor", id:"home" %>
+                <%= link_to content_tag(:i, "", class: "fas fa-home") + " Home", tweets_path(title: "Home"), class: "anchor", id:"home" %>
             </div> <!-- will become followers path -->
             <div class="mt-3 ms-5">
-                <%= link_to content_tag(:i, "", class: "fas fa-hashtag") + " Explore", tweets_path, class: "anchor", id:"explore" %>
+                <%= link_to content_tag(:i, "", class: "fas fa-hashtag") + " Explore", tweets_path(title: "Explore"), class: "anchor", id:"explore" %>
             </div>
             <div class="mt-3 ms-5">
-                <%= link_to content_tag(:i, "", class: "fas fa-user") + " Profile", current_user.profile, class: "anchor", id:"profile", onclick:"profileClicked()" %>
+                <%= link_to content_tag(:i, "", class: "fas fa-user") + " Profile", current_user.profile, class: "anchor", id:"profile" %>
             </div>
             <div class="mt-3 ms-5">
                 <%= link_to content_tag(:i, "", class: "fas fa-cog") + " Settings",  home_settings_path, class: "anchor", id:"settings" %>

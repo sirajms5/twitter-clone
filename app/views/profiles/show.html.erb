@@ -1,16 +1,18 @@
 <% render @profile %>
 
+<% if current_user.profile.id == @profile.id %>
+<script>
+  var pageTitle = "profile"; // used in left_column.js
+</script>
+<% end %>
+
 <div class="d-flex align-items-center mt-3">  
   <% if current_user.profile.id != @profile.id%>
     <p><%= link_to "", :back, class:"fas fa-arrow-left anchor-profile me-2" %></p>
   <% end %>
   <div class="d-flex flex-column ms-3">
-    <h5 id="profile-name"> <%= @profile.first_name + " " + @profile.last_name %> </h5>    
-    <% if @tweets_number.present? && @tweets_number.any? %>
-      <p> <%= @tweets_number.last.id %> Tweets </p>
-    <% else %>
-      <p> 0 Tweets </p>
-    <% end %>
+    <h5 id="profile-name"> <%= @profile.first_name + " " + @profile.last_name %> </h5>
+    <p> <%= @profile.tweets.count %> Tweets </p>
   </div>
 </div>
 <img class="img-fluid" id="cover-image" src="<%= @profile.cover_image.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.cover_image : 'https://sirajsaleem.com/images/default-cover-image.webp' %>" alt="cover photo" />
