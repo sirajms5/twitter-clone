@@ -34,7 +34,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">
-              <img id="tweet-reply-image" src="<%= reply.user.profile.image_url %>" alt="profile-image" />
+              <img id="tweet-reply-image" src="<%= reply.user.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? reply.user.profile.image_url.end_with? : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile-image" />
               <h6 class="ms-2">
                 <%= link_to reply.tweet.profile.first_name + " " + reply.tweet.profile.last_name, reply, class:"anchor-tweet" %>
               </h6>

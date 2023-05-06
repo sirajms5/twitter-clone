@@ -13,7 +13,7 @@
 </div>
 
 <div class="d-flex align-items-center mt-2"> 
-  <img id="tweet-image" src="<%= @reply.tweet.profile.image_url %>" alt="profile-image" />
+  <img id="tweet-image" src="<%= @reply.tweet.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @reply.tweet.profile.image_url.end_with? : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile-image" />
   <h5 class="ms-4"> <%= link_to @reply.tweet.profile.first_name + " " + @reply.tweet.profile.last_name, profile_path(@reply.tweet.profile.id), class:"anchor-tweet", id:"tweet-profile-name" %> </h5>
 </div>
 

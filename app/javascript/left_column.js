@@ -1,19 +1,23 @@
-function solidify(elementId){
-    var element = document.getElementById(elementId);
-    var allElementIds = ["home", "explore", "profile", "settings"]; // IDs for all tabs
-
-    var index = allElementIds.indexOf(elementId);
-    if (index !== -1) {
-        allElementIds.splice(index, 1);
+document.addEventListener("turbo:load", function() {
+    var h4Element = document.querySelector("h4");
+    var elementId = null;
+    
+    if (h4Element && h4Element.textContent === "Home") {
+      elementId = document.getElementById("home");
+    } else if (h4Element && h4Element.textContent === "Explore") {
+      elementId = document.getElementById("explore");
+    } else if (h4Element && h4Element.textContent === "Settings") {
+      elementId = document.getElementById("settings");
+    } else if(localStorage.getItem("savedData") == "profile"){
+      elementId = document.getElementById("profile");
+      localStorage.removeItem("savedData");
     }
     
-    element.classList.remove("cleaner");
-    element.classList.add("solidifier");
-
-    for (var i = 0; i < allElementIds.length; i++) {
-        var otherElement = document.getElementById(allElementIds[i]);
-        otherElement.classList.remove("solidifier");
-        otherElement.classList.add("cleaner");
+    if (elementId !== null) {
+      elementId.classList.add("solidifier");
     }
-}
+  });
 
+  function profileClicked(){
+    localStorage.setItem("savedData", "profile");
+  }
