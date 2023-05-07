@@ -31,10 +31,13 @@
               <%= tweet.description %>
             </p>
           </div>
+          <div>
+            <i class="far fa-comment ms-2 me-1"></i>
+            <%= tweet.replies.count %>
+          </div>
         </div>
       <% end %>
-    <% else %>
-      <% if !current_user.nil? %>
+    <% elsif !current_user.nil? %>
         <% current_user.profile.following.each do |following| %>
           <% if following.followed_id == tweet.profile.id %>
             <%= link_to tweet, class:"tweet-clean-anchor tweet-card" do %>
@@ -54,11 +57,14 @@
                     <%= tweet.description %>
                   </p>
                 </div>
+                <div>
+                  <i class="far fa-comment ms-2 me-1"></i>
+                  <%= tweet.replies.count %>
+                </div>
               </div>
             <% end %>
           <% end %>
         <% end %>
-      <% end %>
     <% end %>
   <% end %>
 </div>

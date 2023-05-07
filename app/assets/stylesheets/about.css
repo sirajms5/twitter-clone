@@ -1,0 +1,7 @@
+.about-anchor {
+    text-decoration: none;
+}
+
+.about-anchor:hover {
+    text-decoration: underline;
+}
