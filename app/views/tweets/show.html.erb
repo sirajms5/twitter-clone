@@ -7,7 +7,7 @@
 
 <div class="d-flex justify-content-between align-items-center">
   <div class="d-flex align-items-center mt-2"> 
-    <img class="img-fluid" id="tweet-image" src="<%= @tweet.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @tweet.profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="no image" />
+    <img class="img-fluid" id="tweet-image" src="<%= @tweet.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @tweet.profile.image_url : 'https://sirajsaleem.com/images/twitter-clone/default-profile-image.png' %>" alt="no image" />
     <h5 class="ms-4"> <%= link_to @tweet.profile.first_name + " " + @tweet.profile.last_name, profile_path(@tweet.profile.id), class:"anchor-tweet" %> </h5>
   </div>
   <% if current_user.profile.id == @tweet.profile.id %>
@@ -34,7 +34,7 @@
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center">
-            <img id="tweet-reply-image" src="<%= reply.user.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? reply.user.profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile-image" />
+            <img id="tweet-reply-image" src="<%= reply.user.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? reply.user.profile.image_url : 'https://sirajsaleem.com/images/twitter-clone/default-profile-image.png' %>" alt="profile-image" />
             <h6 class="ms-2">
               <%= link_to reply.tweet.profile.first_name + " " + reply.tweet.profile.last_name, profile_path(reply.tweet.profile.id), class:"anchor-tweet" %>
             </h6>

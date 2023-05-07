@@ -15,8 +15,8 @@
     <p> <%= @profile.tweets.count %> Tweets </p>
   </div>
 </div>
-<img class="img-fluid" id="cover-image" src="<%= @profile.cover_image.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.cover_image : 'https://sirajsaleem.com/images/default-cover-image.webp' %>" alt="cover photo" />
-<img class="img-fluid" id="profile-image" src="<%= @profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile photo"/>
+<img class="img-fluid" id="cover-image" src="<%= @profile.cover_image.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.cover_image : 'https://sirajsaleem.com/images/twitter-clone/default-cover-image.webp' %>" alt="cover photo" />
+<img class="img-fluid" id="profile-image" src="<%= @profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.image_url : 'https://sirajsaleem.com/images/twitter-clone/default-profile-image.png' %>" alt="profile photo"/>
 <div class="d-flex justify-content-between align-items-center mt-5">
   <div>    
     <h5> <%= @profile.first_name + " " + @profile.last_name %> </h5>    
@@ -51,7 +51,7 @@
           <div class="card-body">
             <div class="d-flex">
               <h6 class="card-title">
-                <img class="me-2" id="profile-tweet-image" src="<%= @profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile-image" />
+                <img class="me-2" id="profile-tweet-image" src="<%= @profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? @profile.image_url : 'https://sirajsaleem.com/images/twitter-clone/default-profile-image.png' %>" alt="profile-image" />
                 <%= @profile.first_name + " " + @profile.last_name %>
               </h6>
               <p class="ms-2">

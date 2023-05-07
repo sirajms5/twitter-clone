@@ -9,7 +9,7 @@
                         <div class="card-bdoy d-flex align-items-center justify-content-between" id="suggestions">
                             <div>
                                 <%= link_to profile_path(profile), class:"image-anchor" do %>
-                                    <img class="mx-2 my-2 anchor" id="column-profile-image" src="<%= profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile image" />
+                                    <img class="mx-2 my-2 anchor" id="column-profile-image" src="<%= profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? profile.image_url : 'https://sirajsaleem.com/images/twitter-clone/default-profile-image.png' %>" alt="profile image" />
                                 <% end %>
                                 <%= link_to (profile.first_name + " " + profile.last_name), profile_path(profile.id), class:"anchor" %>
                             </div>

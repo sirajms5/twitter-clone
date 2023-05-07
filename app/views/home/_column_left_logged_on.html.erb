@@ -24,7 +24,7 @@
     <% if current_user.profile.present? %>
         <div class="btn-group dropup">
             <button id="user-card" type="button" class="btn btn-outline-dark dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-fluid" id="column-image" src="<%= current_user.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? current_user.profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="no image" />
+                <img class="img-fluid" id="column-image" src="<%= current_user.profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? current_user.profile.image_url : 'https://sirajsaleem.com/images/twitter-clone/default-profile-image.png' %>" alt="no image" />
                 <h5 class="ms-3" id="user-profile-name">
                     <%= current_user.profile.first_name + " " + current_user.profile.last_name %>
                 </h5>
