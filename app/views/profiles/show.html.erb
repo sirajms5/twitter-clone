@@ -31,9 +31,11 @@
   </div>
 </div>
 <p class="mt-1 profile-info">
-  <i class="fas fa-map-pin me-1"></i>
-  <%= (@profile.country.capitalize unless @profile.country.nil?) + ", " + (@profile.province.upcase unless @profile.province.nil?) + ". " + (@profile.city.capitalize unless @profile.city.nil?) %>
-  <i class="far fa-calendar-alt ms-3"></i> joined
+  <% if !(@profile.country == "") || !(@profile.province == "")  || !(@profile.city == "") %>
+    <i class="fas fa-map-pin me-1"></i>
+    <span class="me-3"><%= (@profile.country.capitalize unless @profile.country.nil?) + (", " unless @profile.province == "").to_s + (@profile.province.upcase unless @profile.province.nil?) + (". " unless @profile.city == "").to_s + (@profile.city.capitalize unless @profile.city.nil?) %></span>
+  <% end %>
+  <i class="far fa-calendar-alt me-1"></i> joined
   <%= @profile.created_at.strftime("%B %Y") %>
 </p>
 <div class="d-flex mb-4">

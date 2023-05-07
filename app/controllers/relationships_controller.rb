@@ -5,7 +5,9 @@ class RelationshipsController < ApplicationController
         @rel = Relationship.new(follower_id: current_user.profile.id,
                                 followed_id: other_user.id)
         @rel.save
-        redirect_to profile_path(other_user)
+        unless :source == "column-right"
+            redirect_to profile_path(other_user)
+        end
     end
 
     def destroy

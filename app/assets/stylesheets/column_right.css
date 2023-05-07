@@ -7,8 +7,22 @@
     color: blue;
 }
 
+.image-anchor {
+    text-decoration: none;
+}
+
 #column-right {
     position: fixed;
     height: 90vh;
     right: 0;
+}
+
+#column-profile-image {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+}
+
+#suggestions {
+    box-shadow: 1px 1px 2px;
 }

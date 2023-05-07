@@ -23,6 +23,9 @@
     height: 90vh;
 }
 
+#user-card {    
+    box-shadow: 2px 2px 4px;
+}
 .cleaner {
     font-weight: normal;
 }
