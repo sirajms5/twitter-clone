@@ -1,24 +1,15 @@
-# README
+# Twitter Clone Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### This application is a clone of twitter, it uses Ruby on Rails to facilitate all the essential CRUD functions that allows the user to create new user/profile/tweets, reply to tweets, read others tweets, and delete tweets. Moreover, there is a following system that allows users to follow each other to read only their tweets.
 
-Things you may want to cover:
+-----
+##### Screenshots of the application:
 
-* Ruby version
+![image showing calculator application](https://www.sirajsaleem.com/images/twitter-clone/explore.png)
 
-* System dependencies
+<br/>
 
-* Configuration
+![image showing calculator application](https://www.sirajsaleem.com/images/twitter-clone/profile.png)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-----
+### Disclaimer: this is a twitter-clone, non-profit, and it is for learning purposes.
