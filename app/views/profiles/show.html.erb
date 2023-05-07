@@ -63,6 +63,10 @@
               <%= tweet.description %>
             </p>
           </div>
+          <div>
+            <i class="far fa-comment ms-3 me-1 mb-3"></i>
+            <%= tweet.replies.count %>
+          </div>
         </div>
       <% end %>
     <% end %>
@@ -70,12 +74,3 @@
   <p>No tweets yet.</p>
   <%= link_to "Tweet your first tweet", new_tweet_path(profile_id: current_user.profile.id), class: "btn btn-primary" %>
 <% end %>
-<!--
-<div>
-  <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
-  <%= link_to "Back to profiles", profiles_path %>
-
-  <%= button_to "Destroy this profile", @profile, method: :delete %>
-</div>
--->
-

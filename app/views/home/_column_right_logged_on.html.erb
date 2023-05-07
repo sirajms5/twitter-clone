@@ -3,23 +3,21 @@
         <div class="card mt-3">
             <div class="card-body">
                 <h5 class="card-title my-3"> Who to follow </h5>
-                <% profiles = Profile.all.sort_by { |profile| -profile.followers.count } %>
+                <% profiles = Profile.all.reject { |profile| current_user.profile.following.exists?(followed_id: profile.id) || current_user.profile.id == profile.id }.sort_by { |profile| -profile.followers.count } %>
                 <% profiles.first(5).each do |profile| %>
-                    <% unless current_user.profile.following.exists?(followed_id: profile.id) || current_user.profile.id == profile.id %>
-                        <div class="card mb-2">
-                            <div class="card-bdoy d-flex align-items-center justify-content-between" id="suggestions">
-                                <div>
-                                    <%= link_to profile_path(profile), class:"image-anchor" do %>
-                                        <img class="mx-2 my-2 anchor" id="column-profile-image" src="<%= profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile image" />
-                                    <% end %>
-                                    <%= link_to (profile.first_name + " " + profile.last_name), profile_path(profile.id), class:"anchor" %>
-                                </div>
-                                <div>
-                                    <%= button_to "Follow", profile_relationships_path(profile_id: profile.id), method: :post, class:"btn btn-secondary me-2", params: {source: "column-right"} %>                            
-                                </div>
+                    <div class="card mb-2">
+                        <div class="card-bdoy d-flex align-items-center justify-content-between" id="suggestions">
+                            <div>
+                                <%= link_to profile_path(profile), class:"image-anchor" do %>
+                                    <img class="mx-2 my-2 anchor" id="column-profile-image" src="<%= profile.image_url.end_with?('.jpg', '.png', '.bmp', '.svg', '.webp') ? profile.image_url : 'https://sirajsaleem.com/images/default-profile-image.png' %>" alt="profile image" />
+                                <% end %>
+                                <%= link_to (profile.first_name + " " + profile.last_name), profile_path(profile.id), class:"anchor" %>
+                            </div>
+                            <div>
+                                <%= button_to "Follow", profile_relationships_path(profile_id: profile.id), method: :post, class:"btn btn-secondary me-2", params: {source: "column-right"}, onclick:"reload()" %>                            
                             </div>
                         </div>
-                    <% end %>
+                    </div>
                 <% end %>
             </div>
         </div>
